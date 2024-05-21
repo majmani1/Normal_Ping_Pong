@@ -1,7 +1,9 @@
 
-infos_ball = {
-    x: canvas.width/2,
-    y: canvas.height/2,
+var infos_ball = {
+    x: infos_tbale.width/2,
+    y: infos_tbale.height / 2,
+    width: infos_tbale.height  * 2 / 100,
+    height: infos_tbale.height  * 20 / 100,
     radius: 10,
     move_x: "left",
     move_y: "stop",
@@ -12,34 +14,13 @@ const ball = canvas.getContext("2d");
 
 
 
-// hna ghadi idar lchrono dial match
 
-// const text_chrono = canvas.getContext("2d");
-// function print_text_chrono(y) {
-//     console.log(y)
-    
-//     text_chrono.font = "50px Arial";
-//     text_chrono.fillText(y,10,80);
-// }
-
-// var a = 5;
-// let play_match
-// play_match = setTimeout(() => {
-//     if (a == 0)
-//     {
-//         infos_ball.start_match = true
-//         clearTimeout(play_match)
-//         return
-//     }
-//     a--;
-//     print_text_chrono(a);
-//   }, "1000");
 
 
 function replay(move_x)
 {
-    infos_ball.x = canvas.width/2
-    infos_ball.y = canvas.height/2
+    infos_ball.x = infos_tbale.width/2
+    infos_ball.y = infos_tbale.height/2
     infos_ball.move_x = move_x
     infos_ball.move_y = "stop"
 }
@@ -47,7 +28,7 @@ function replay(move_x)
 function move_left_right() {
     if (infos_ball.x - infos_ball.radius < 0)
         replay("right")
-    else if (infos_ball.x + infos_ball.radius > canvas.width)
+    else if (infos_ball.x + infos_ball.radius > infos_tbale.width)
         replay("left")
     //-------------------- tir kora player 1 ----------------------
     if (infos_ball.y <= infos_player1.y + infos_player1.height && infos_ball.y >= infos_player1.y && infos_ball.x - infos_ball.radius <= infos_player1.x + infos_player1.width)
@@ -104,7 +85,7 @@ function draw_BAll()
     move_up_down()
     move_left_right()
     ball.beginPath();
-    ball.arc(infos_ball.x , infos_ball.y , 10, 0, 2 * Math.PI);
+    ball.arc(infos_ball.x , infos_ball.y , infos_ball.width, 0, 2 * Math.PI);
     ball.fillStyle = "red";
     ball.fill(); 
 }

@@ -4,25 +4,32 @@
 const canvas = document.querySelector(".table")
 
 
+var infos_tbale = {
+    
+    width : window.innerWidth / 2,
+    height : ( window.innerWidth / 2)/2,
+}
+
 var infos_player1 = {
-    x : 10,
-    y : canvas.height/2 - 37.5,
-    width : 15,
-    height : 75,
+    x : 0,
+    y : infos_tbale.height/2 - 37.5,
+    width : infos_tbale.width/80,
+    height : infos_tbale.height/4,
     move: "stop"
 }
 
 var infos_player2 = {
-    x : 780,
-    y : canvas.height/2 - 37.5,
-    width : 15,
-    height : 75,
+    x : infos_tbale.width - infos_player1.width,
+    y : infos_tbale.height/2 - 37.5,
+    width : infos_tbale.width/80,
+    height : infos_tbale.height/4,
     move: "stop"
 }
 
 var move_player
 
-
+canvas.width = infos_tbale.width
+canvas.height = infos_tbale.height
 
 const player1 = canvas.getContext("2d");
 const player2 = canvas.getContext("2d");
@@ -31,6 +38,7 @@ player2.fillStyle = "red";
 player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
 player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
  
+
 
 let clicks = []
  var i = 0
@@ -116,11 +124,8 @@ function drawPlayer()
         }
     }
     draw_BAll()
-    // if (infos_player1.move == "stop" && infos_player2.move == "stop")
-        //     return
     player1.clearRect(0, 0, canvas.width, canvas.height);
-    // if (infos_ball.start == true)
-    //     print_text_chrono()
+
     draw_BAll()
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
     player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
@@ -129,4 +134,28 @@ function drawPlayer()
 
  
 
- var move_player = setInterval(drawPlayer, 15);
+var move_player = setInterval(drawPlayer, 15);
+ 
+addEventListener("resize", (event) => {
+    //-------- table
+    infos_tbale.width = window.innerWidth / 2
+    infos_tbale.height = (window.innerWidth / 2) / 2
+    canvas.width = infos_tbale.width
+    canvas.height = infos_tbale.height
+    //-------- player1
+    infos_player1.x = 0,
+    infos_player1.y = infos_tbale.height/2 - 37.5
+    infos_player1.width = infos_tbale.width/80
+    infos_player1.height = infos_tbale.height / 4
+    //-------- player2
+    infos_player2.x = infos_tbale.width - infos_player1.width
+    infos_player2.y = infos_tbale.height / 2 - 37.5
+    infos_player2.width = infos_tbale.width / 80
+    infos_player2.height = infos_tbale.height / 4
+    //-------- ball
+    infos_ball.x = infos_tbale.width / 2
+    infos_ball.y = infos_tbale.height / 2
+    infos_ball.width = infos_tbale.height  * 2 / 100
+    
+ });
+    
