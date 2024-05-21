@@ -2,12 +2,11 @@
 
 
 const canvas = document.querySelector(".table")
-console.log(canvas.height)
 
 
 var infos_player1 = {
     x : 10,
-    y : 200,
+    y : canvas.height/2 - 37.5,
     width : 15,
     height : 75,
     move: "stop"
@@ -15,13 +14,14 @@ var infos_player1 = {
 
 var infos_player2 = {
     x : 780,
-    y : 200,
+    y : canvas.height/2 - 37.5,
     width : 15,
     height : 75,
     move: "stop"
 }
 
 var move_player
+
 
 
 const player1 = canvas.getContext("2d");
@@ -31,53 +31,98 @@ player2.fillStyle = "red";
 player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
 player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
  
-// player1.clearRect(0, 0, canvas.width, canvas.height);
- 
-document.addEventListener("keydown", function(key){
-    console.log(key.key)
 
-    if (key.key == "w" && infos_player1.y > 0)
-    {
+let clicks = []
+ var i = 0
+document.addEventListener("keydown", function(key){
+    // console.log(key.key)
+
+    if (key.key == "w" && infos_player1.y > 0) {
+        if (clicks.find(clicks => clicks.letre == "w") == undefined)
+            clicks.push({letre: "w"})
+
         infos_player1.move = "up"
-        infos_player1.y -= 10
     }
     else if (key.key == "s" &&  infos_player1.y + infos_player1.height < canvas.height)
     {
-        infos_player1.y += 10
+        if (clicks.find(clicks => clicks.letre == "s") == undefined)
+            clicks.push({letre: "s"})
+
         infos_player1.move = "down"
          
     }
 
-    else if (key.key == "ArrowUp" && infos_player2.y > 0)
+    else if ((key.key == "ArrowUp" || key.key == "PageUp") && infos_player2.y > 0)
     {
+        if (clicks.find(clicks => clicks.letre == "up") == undefined)
+            clicks.push({letre: "up"})
+
         infos_player2.move = "up"
-        infos_player2.y -= 10
     }
-    else if (key.key == "ArrowDown" &&  infos_player2.y + infos_player2.height < canvas.height)
+    else if ((key.key == "ArrowDown" || key.key == "PageDown") &&  infos_player2.y + infos_player2.height < canvas.height)
     {
-        infos_player2.y += 10
+        if (clicks.find(clicks => clicks.letre == "down") == undefined)
+            clicks.push({letre: "down"})
         infos_player2.move = "down"
     }
 })
 
-document.addEventListener("keyup", function(key){
-    console.log(key.key)
-
-    if (key.key == "ArrowUp")
-        infos_player1.move =  "stop"
-    else if (key.key == "ArrowDown")
+document.addEventListener("keyup", function (key) {
+    if (key.key == "w") {
+     
+        clicks.splice(clicks.findIndex(click => click.letre == "w"), 1);
+            infos_player1.move =  "stop"
+    }
+    else if (key.key == "s")
+    {
+        clicks.splice(clicks.findIndex(click => click.letre == "s"), 1);
+            infos_player1.move =  "stop"
+         
+    }
+    if (key.key == "ArrowUp" || key.key == "PageUp")
+        {
+            
+            clicks.splice(clicks.findIndex(click => click.letre == "up"), 1);
+            infos_player1.move =  "stop"
+        }
+    else if (key.key == "ArrowDown" || key.key == "PageDown")
+    {
+        clicks.splice(clicks.findIndex(click => click.letre == "down"), 1);
         infos_player1.move = "stop"
+    }
+        console.log(clicks.length )
 })
 
 
 function drawPlayer()
 {
-    if (infos_player1.move == "stop" && infos_player2.move == "stop")
-        return
+    for (let i = 0; i < clicks.length; i++)
+    {
+        if (clicks[i].letre == "w" && infos_player1.y > 0)
+        {
+            infos_player1.y -= 10
+        }
+        else if (clicks[i].letre == "s" && infos_player1.y + infos_player1.height < canvas.height)
+        {
+            infos_player1.y += 10
+        }
+        else if (clicks[i].letre == "up" && infos_player2.y > 0)
+        {
+            infos_player2.y -= 10
+        }
+        else if (clicks[i].letre == "down" && infos_player2.y + infos_player2.height < canvas.height)
+        {
+            infos_player2.y += 10
+        }
+    }
+    draw_BAll()
+    // if (infos_player1.move == "stop" && infos_player2.move == "stop")
+        //     return
     player1.clearRect(0, 0, canvas.width, canvas.height);
-    // player2.clearRect(0, 0, canvas.width, canvas.height);
+    // if (infos_ball.start == true)
+    //     print_text_chrono()
+    draw_BAll()
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
-
     player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
 
 }
