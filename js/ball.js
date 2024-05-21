@@ -33,9 +33,9 @@ function move_left_right() {
     //-------------------- tir kora player 1 ----------------------
     if (infos_ball.y <= infos_player1.y + infos_player1.height && infos_ball.y >= infos_player1.y && infos_ball.x - infos_ball.radius <= infos_player1.x + infos_player1.width)
     {
-        if (infos_ball.y <= infos_player1.y + infos_player1.height / 2)
+        if (infos_ball.y < infos_player1.y + infos_player1.height / 2)
             infos_ball.move_y = "up"
-        else if (infos_ball.y >= infos_player1.y + infos_player1.height - infos_player1.height / 2)
+        else if (infos_ball.y > infos_player1.y + infos_player1.height - infos_player1.height / 2)
             infos_ball.move_y = "down"
         else
             infos_ball.move_y = "stop"
@@ -71,12 +71,13 @@ function move_left_right() {
 function move_up_down() {
     if (infos_ball.y - infos_ball.radius < 0)
         infos_ball.move_y = "down"
-    else if (infos_ball.y + infos_ball.radius > canvas.height)
+    else if (infos_ball.y + infos_ball.radius > infos_tbale.height)
         infos_ball.move_y = "up"
     if (infos_ball.move_y == "up")
         infos_ball.y -= infos_ball.speed
     if (infos_ball.move_y == "down")
         infos_ball.y += infos_ball.speed
+    
 
 }
 
