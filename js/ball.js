@@ -19,6 +19,16 @@ const ball = canvas.getContext("2d");
 
 function replay(move_x)
 {
+    if (move_x == "left")
+    {
+        infos_player1.score += 1
+        document.querySelector(".result_player1").innerHTML = infos_player1.score;
+    }
+    else
+    {
+        infos_player2.score += 1
+        document.querySelector(".result_player2").innerHTML = infos_player2.score;
+    }
     infos_ball.x = infos_tbale.width/2
     infos_ball.y = infos_tbale.height/2
     infos_ball.move_x = move_x
@@ -87,7 +97,7 @@ function draw_BAll()
     move_left_right()
     ball.beginPath();
     ball.arc(infos_ball.x , infos_ball.y , infos_ball.width, 0, 2 * Math.PI);
-    ball.fillStyle = "red";
+    ball.fillStyle = "#02EB98";
     ball.fill(); 
 }
 

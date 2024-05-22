@@ -1,8 +1,71 @@
-.table{
-    margin-top: 10%;
-    margin-left: 30%;
+body{
+    background: #000;
+
+    margin: 0;
+    padding: 0;
 }
 
-canvas{
+.table{
+    margin-top: 5vh;
+    margin-left: 15%;
+    display: block;
+}
+
+.table{
     background: black;
+    box-shadow: 
+    0 0 10vw 0vw #02EB98,
+    0 0 2vw 0.4vw #099e6a,
+    inset 0 0 .5vw 0.2vw #02EB98,
+    inset 0 0 .2vw 0.2vw #00ac70,
+    inset 0 0 .25vw 0.2vw #027b50;
+}
+
+.score{
+    margin-left: auto;
+    margin-right: auto;
+     display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+img{
+    position: relative;
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.result_player2, .result_player1{
+    font-size: 2vw;
+    color: #FFF;
+    transition: .5s ease-out;
+ }
+ 
+ .result_player1:hover{
+    font-size: 2%;
+ }
+ 
+ span{
+    /* font-size: 7em; */
+    color: #02EB98;
+    /* box-shadow: 
+    0 0 10vw 0vw #02EB98,
+    0 0 2vw 0.4vw #099e6a,
+    inset 0 0 .5vw 0.2vw #02EB98,
+    inset 0 0 .2vw 0.2vw #00ac70,
+    inset 0 0 .25vw 0.2vw #027b50; */
+ }
+ 
+ .game{
+     
+    display: inline-block;
+    /* justify-content: center; */
+    width: 100%;
+    height: 100%;
+    padding: 8vh 0 0 0;
+    /* align-items: ; */
+  
 }

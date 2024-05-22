@@ -6,15 +6,17 @@ const canvas = document.querySelector(".table")
 
 var infos_tbale = {
     
-    width : window.innerWidth / 2,
-    height : ( window.innerWidth / 2)/2,
+    width : window.innerWidth / 1.5,
+    height : ( window.innerWidth / 1.5)/2,
 }
 
 var infos_player1 = {
     x : 0,
     y : infos_tbale.height/2 - 37.5,
     width : infos_tbale.width/80,
-    height : infos_tbale.height/4,
+    height: infos_tbale.height / 4,
+    speed_move: infos_tbale.height / 100,
+    score: 0,
     move: "stop"
 }
 
@@ -22,7 +24,8 @@ var infos_player2 = {
     x : infos_tbale.width - infos_player1.width,
     y : infos_tbale.height/2 - 37.5,
     width : infos_tbale.width/80,
-    height : infos_tbale.height/4,
+    height: infos_tbale.height / 4,
+    score: 0,
     move: "stop"
 }
 
@@ -33,8 +36,8 @@ canvas.height = infos_tbale.height
 
 const player1 = canvas.getContext("2d");
 const player2 = canvas.getContext("2d");
-player1.fillStyle = "red";
-player2.fillStyle = "red";
+// player1.fillStyle = "#02EB98";
+// player2.fillStyle = "#02EB98";
 player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
 player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
  
@@ -108,23 +111,24 @@ function drawPlayer()
     {
         if (clicks[i].letre == "w" && infos_player1.y > 0)
         {
-            infos_player1.y -= 10
+            infos_player1.y -= infos_player1.speed_move
         }
         else if (clicks[i].letre == "s" && infos_player1.y + infos_player1.height < canvas.height)
         {
-            infos_player1.y += 10
+            infos_player1.y += infos_player1.speed_move
         }
         else if (clicks[i].letre == "up" && infos_player2.y > 0)
         {
-            infos_player2.y -= 10
+            infos_player2.y -= infos_player1.speed_move
         }
         else if (clicks[i].letre == "down" && infos_player2.y + infos_player2.height < canvas.height)
         {
-            infos_player2.y += 10
+            infos_player2.y += infos_player1.speed_move
         }
     }
-    draw_BAll()
-    player1.clearRect(0, 0, canvas.width, canvas.height);
+    // draw_BAll()
+    ball.fillStyle = "#02EB98";
+    player1.clearRect(0, 0, infos_tbale.width, infos_tbale.height);
 
     draw_BAll()
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
@@ -134,6 +138,6 @@ function drawPlayer()
 
  
 
-var move_player = setInterval(drawPlayer, 15);
+var move_player = setInterval(drawPlayer, 5);
 
     

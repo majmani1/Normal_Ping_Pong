@@ -1,8 +1,8 @@
  
 addEventListener("resize", (event) => {
     //-------- table
-    infos_tbale.width = window.innerWidth / 2
-    infos_tbale.height = (window.innerWidth / 2) / 2
+    infos_tbale.width = window.innerWidth / 1.5
+    infos_tbale.height = (window.innerWidth / 1.5) / 2
     canvas.width = infos_tbale.width
     canvas.height = infos_tbale.height
     //-------- player1
