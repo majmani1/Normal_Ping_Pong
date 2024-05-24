@@ -8,7 +8,7 @@ var infos_ball = {
     move_x: "left",
     move_y: "stop",
     speed: 0,
-    speed_x: infos_tbale.width / 190,
+    speed_x: infos_tbale.width / 300,
     start_match: false
 }
 const ball = canvas.getContext("2d");

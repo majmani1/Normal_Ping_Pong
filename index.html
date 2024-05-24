@@ -8,13 +8,25 @@
 </head>
 <body>
     <div class="game">
-        <div class="score">    
-            <img onclick="showProfil()" src="avatar.jpg" alt="" class="img_player">
+        <div class="score">
+            <div class="full_profile">
+                <div class="profile">
+                    <img onclick="showChat()" class="icon_chat" src="img/chat.png" alt="">
+                    <img onclick="showProfil()" class="img_profile" src="img/avatar.jpg" alt="" class="img_player">
+                </div>
+                <div class="chat"></div>
+            </div>
                 
             <h1 class="result_player1">0</h1>
             <span>Vs</span>
             <h1 class="result_player2">0</h1>
-            <img src="avatar.jpg" alt="">
+            <div class="full_profile">
+                <div class="profile">
+                <img class="img_profile" src="img/avatar.jpg" alt="">
+                
+            </div>
+            <div class="chat2"></div>
+                </div>
         </div>
         <canvas class="table" ></canvas>
         </div>
