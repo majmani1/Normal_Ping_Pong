@@ -7,7 +7,8 @@ var infos_ball = {
     radius: 10,
     move_x: "left",
     move_y: "stop",
-    speed: 3,
+    speed: 0,
+    speed_x: infos_tbale.width / 190,
     start_match: false
 }
 const ball = canvas.getContext("2d");
@@ -30,7 +31,9 @@ function replay(move_x)
         document.querySelector(".result_player2").innerHTML = infos_player2.score;
     }
     infos_ball.x = infos_tbale.width/2
-    infos_ball.y = infos_tbale.height/2
+    infos_ball.y = infos_tbale.height / 2
+    infos_player1.y = infos_tbale.height / 2 - ((infos_tbale.height / 4) / 2)
+    infos_player2.y = infos_tbale.height / 2 - ((infos_tbale.height / 4) / 2)
     infos_ball.move_x = move_x
     infos_ball.move_y = "stop"
 }
@@ -43,12 +46,21 @@ function move_left_right() {
     //-------------------- tir kora player 1 ----------------------
     if (infos_ball.y <= infos_player1.y + infos_player1.height && infos_ball.y >= infos_player1.y && infos_ball.x - infos_ball.radius <= infos_player1.x + infos_player1.width)
     {
-        if (infos_ball.y < infos_player1.y + infos_player1.height / 2)
+        // console.log((infos_ball.y - infos_player1.y) / infos_player1.height) * 7 * 10
+        infos_ball.speed = (infos_ball.y - infos_player1.y) / (infos_player1.height / 2) 
+        if ((infos_ball.y - infos_player1.y) < infos_player1.height / 2)
+            {
+                infos_ball.speed += -1 
             infos_ball.move_y = "up"
-        else if (infos_ball.y > infos_player1.y + infos_player1.height - infos_player1.height / 2)
+            }
+        else if ((infos_ball.y - infos_player1.y) > infos_player1.height - infos_player1.height / 2)
+        {
+            infos_ball.speed += -1
+            
             infos_ball.move_y = "down"
-        else
-            infos_ball.move_y = "stop"
+            }
+    
+
         if (infos_ball.move_x == "left")
             infos_ball.move_x = "right"
         else
@@ -57,12 +69,18 @@ function move_left_right() {
     //-------------------- tir kora player 2 ----------------------
     if (infos_ball.y <= infos_player2.y + infos_player2.height && infos_ball.y >= infos_player2.y && infos_ball.x + infos_ball.radius >= infos_player2.x)
     {
-        if (infos_ball.y <= infos_player2.y + infos_player2.height / 2)
+        infos_ball.speed = (infos_ball.y - infos_player2.y) / (infos_player2.height/2) 
+        if ((infos_ball.y - infos_player2.y) < infos_player2.height / 2)
+            {
+                infos_ball.speed += -1 
             infos_ball.move_y = "up"
-        else if (infos_ball.y >= infos_player2.y + infos_player2.height - infos_player2.height / 2)
-            infos_ball.move_y = "down"
-        else
-            infos_ball.move_y = "stop"
+            }
+        else if ((infos_ball.y - infos_player2.y) > infos_player2.height - infos_player2.height / 2)
+            {
+                infos_ball.speed += -1
+                
+                infos_ball.move_y = "down"
+                }
         if (infos_ball.move_x == "left")
             infos_ball.move_x = "right"
         else
@@ -73,18 +91,25 @@ function move_left_right() {
         
         }
     if (infos_ball.move_x == "left")
-        infos_ball.x -= infos_ball.speed
+        infos_ball.x -= infos_ball.speed_x
     if (infos_ball.move_x == "right")
-        infos_ball.x += infos_ball.speed
+        infos_ball.x += infos_ball.speed_x
 }
 
 function move_up_down() {
-    if (infos_ball.y - infos_ball.radius < 0)
+    console.log(infos_ball.speed)
+    if (infos_ball.y - infos_ball.radius + infos_ball.speed < 0)
+    {
+        infos_ball.speed = -infos_ball.speed
         infos_ball.move_y = "down"
-    else if (infos_ball.y + infos_ball.radius > infos_tbale.height)
+        }
+    else if (infos_ball.y + infos_ball.radius + infos_ball.speed > infos_tbale.height)
+    {
         infos_ball.move_y = "up"
+        infos_ball.speed = -infos_ball.speed
+        }
     if (infos_ball.move_y == "up")
-        infos_ball.y -= infos_ball.speed
+        infos_ball.y += infos_ball.speed
     if (infos_ball.move_y == "down")
         infos_ball.y += infos_ball.speed
     

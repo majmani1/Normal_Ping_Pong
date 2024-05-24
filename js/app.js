@@ -12,17 +12,17 @@ var infos_tbale = {
 
 var infos_player1 = {
     x : 0,
-    y : infos_tbale.height/2 - 37.5,
+    y : infos_tbale.height/2 - ((infos_tbale.height / 4)/2),
     width : infos_tbale.width/80,
     height: infos_tbale.height / 4,
-    speed_move: infos_tbale.height / 100,
+    speed_move: infos_tbale.height / 150,
     score: 0,
     move: "stop"
 }
 
 var infos_player2 = {
     x : infos_tbale.width - infos_player1.width,
-    y : infos_tbale.height/2 - 37.5,
+    y : infos_tbale.height/2 - ((infos_tbale.height / 4)/2),
     width : infos_tbale.width/80,
     height: infos_tbale.height / 4,
     score: 0,
@@ -101,7 +101,7 @@ document.addEventListener("keyup", function (key) {
         clicks.splice(clicks.findIndex(click => click.letre == "down"), 1);
         infos_player1.move = "stop"
     }
-        console.log(clicks.length )
+        // console.log(clicks.length )
 })
 
 
