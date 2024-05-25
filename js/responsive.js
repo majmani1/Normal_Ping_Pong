@@ -38,14 +38,52 @@ function showChat() {
     }
 }
 
-// print message in chat
 
-var message = ["hello", "hi", "how are you", "fine", "and you", "fine", "thanks", "you are welcome", "bye", "goodbye"];
-for (var i = 0; i < message.length; i++) {
+
+function showMessages() {
+    console.log("showMessages")
     var chat = document.querySelector(".chat");
-    var label = document.createElement("label");
-    label.innerHTML = message[i];
-    chat.appendChild(label);
+    chat.innerHTML = ""
+    chat.innerHTML = `
+    <div class="text_emojie">
+    <div class="text">
+        <img onclick="showMessages()" src="img/chat.png" alt="" srcset="">
+
+    </div>
+    <div class="emojie">
+        <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
+    </div>
+    </div>`;
+
+    var message = ["hello", "hi", "how are you", "fine", "and you", "fine", "thanks", "you are welcome", "bye", "goodbye"];
+    for (var i = 0; i < message.length; i++) {
+        var label = document.createElement("label");
+        label.innerHTML = message[i];
+        chat.appendChild(label);
+    }
+
+}
+function showEmojies() {
+    var chat = document.querySelector(".chat");
+
+    chat.innerHTML = `
+    <div class="text_emojie">
+    <div class="text">
+        <img onclick="showMessages()" src="img/chat.png" alt="" srcset="">
+
+    </div>
+    <div class="emojie">
+        <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
+    </div>
+    </div>`;
+
+
+    // chat.innerHTML += `<div class="all_emojies">`
+    for (var i = 0; i < 10; i++) {
+        
+        chat.innerHTML += `<img class="pic_emojies" src="img/proud.png" alt="" srcset="">`;
+    }
+    // chat.innerHTML += `</div>`
 }
 // var chat = document.querySelector(".chat");
 // var div = document.createElement("div");
