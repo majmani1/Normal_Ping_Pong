@@ -3,6 +3,9 @@ body{
 
     margin: 0;
     padding: 0;
+    -webkit-user-select: none;  
+  -ms-user-select: none;  
+  user-select: none;  
 }
 
 .table{
@@ -41,6 +44,7 @@ body{
 
 }
 
+
 .table{
     background: black;
     box-shadow: 
@@ -61,6 +65,12 @@ body{
 
 .full_profile{
     display: inline;
+}
+.messa{
+    font-size: 0.7vw;
+   display: flex;
+   justify-content: center;
+
 }
 
 label{
@@ -107,11 +117,24 @@ label{
     margin-left: 30%;
     border-radius: 10px;
     color: #FFF;
-    transition: .5s ease-out;
-
-    /* fro */
-    /* transition: .5s ease-out; */
+    
 }
+
+.showMessage{
+    display: none;
+    height: 5vw;
+    width: 5vw;
+    background: #070707;
+    margin-left: 30%;
+    border-radius: 10px;
+    color: #FFF;
+    align-items: center;
+    /* transition: down 2s ; */
+}
+
+ h2{
+    color: #FFF;
+ }
 .profile{
     display: flex;
 }
@@ -168,3 +191,4 @@ label{
     /* align-items: ; */
   
 }
+

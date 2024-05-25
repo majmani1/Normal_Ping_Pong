@@ -39,10 +39,10 @@ function showChat() {
 }
 
 
+var chat = document.querySelector(".chat");
 
 function showMessages() {
     console.log("showMessages")
-    var chat = document.querySelector(".chat");
     chat.innerHTML = ""
     chat.innerHTML = `
     <div class="text_emojie">
@@ -57,15 +57,12 @@ function showMessages() {
 
     var message = ["hello", "hi", "how are you", "fine", "and you", "fine", "thanks", "you are welcome", "bye", "goodbye"];
     for (var i = 0; i < message.length; i++) {
-        var label = document.createElement("label");
-        label.innerHTML = message[i];
-        chat.appendChild(label);
+        chat.innerHTML += `<label class="message">${message[i]}</label>`;
     }
 
 }
 function showEmojies() {
-    var chat = document.querySelector(".chat");
-
+    
     chat.innerHTML = `
     <div class="text_emojie">
     <div class="text">
@@ -76,17 +73,43 @@ function showEmojies() {
         <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
     </div>
     </div>`;
-
-
-    // chat.innerHTML += `<div class="all_emojies">`
     for (var i = 0; i < 10; i++) {
         
         chat.innerHTML += `<img class="pic_emojies" src="img/proud.png" alt="" srcset="">`;
     }
-    // chat.innerHTML += `</div>`
 }
-// var chat = document.querySelector(".chat");
-// var div = document.createElement("div");
-// div.innerHTML = "hhh";
-// chat.appendChild(div);
+var showMessage = document.querySelector(".showMessage")
+
+var all_messages = document.querySelector(".chat");
+
+all_messages.addEventListener("click", function(event) {
+    if (event.target.classList.contains("message")) {
+        console.log("Clicked label text:", event.target.textContent);
+        showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
+        chat.style.display = "none";
+        showMessage.style.display = "block";
+        const myTimeout = setTimeout(timeShow_message, 1000);
+    }
+});
+
+
+function timeShow_message() {
+    showMessage.style.display = "none";
+    chat.style.display = "block";
+    showChat()
+    chat.innerHTML = `
+    <div class="text_emojie">
+        <div class="text">
+            <img onclick="showMessages()" src="img/chat.png" alt="" srcset="">
+
+        </div>
+        <div class="emojie">
+            <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
+        </div>
+    </div>`
+}
+
+ 
+
+
 

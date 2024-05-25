@@ -97,7 +97,6 @@ function move_left_right() {
 }
 
 function move_up_down() {
-    console.log(infos_ball.speed)
     if (infos_ball.y - infos_ball.radius + infos_ball.speed < 0)
     {
         infos_ball.speed = -infos_ball.speed
