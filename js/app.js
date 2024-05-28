@@ -39,14 +39,14 @@ const player2 = canvas.getContext("2d");
 // player1.fillStyle = "#02EB98";
 // player2.fillStyle = "#02EB98";
 player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
-player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
- 
+player2.fillRect(infos_player2.x, infos_player2.y, infos_player2.width, infos_player2.height);
+
+
 
 
 let clicks = []
  var i = 0
 document.addEventListener("keydown", function(key){
-    // console.log(key.key)
 
     if (key.key == "w" && infos_player1.y > 0) {
         if (clicks.find(clicks => clicks.letre == "w") == undefined)
@@ -133,7 +133,7 @@ function drawPlayer()
     draw_BAll()
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
     player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
-
+ 
 }
 
  

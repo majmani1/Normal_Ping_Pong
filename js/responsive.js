@@ -31,9 +31,12 @@ addEventListener("resize", (event) => {
  
 function showChat() {
     var chat = document.querySelector(".chat");
-    if (chat.style.visibility == "hidden") {
-        chat.style.visibility = "visible";
+    var text_emojie = document.querySelector(".text_emojie");
+    if (text_emojie.style.visibility == "hidden") {
+        // chat.style.visibility = "visible";
+        text_emojie.style.visibility = "visible";
     } else {
+        text_emojie.style.visibility = "hidden";
         chat.style.visibility = "hidden";
     }
 }
@@ -44,40 +47,52 @@ var chat = document.querySelector(".chat");
 function showMessages() {
     console.log("showMessages")
     chat.innerHTML = ""
-    chat.innerHTML = `
-    <div class="text_emojie">
-    <div class="text">
-        <img onclick="showMessages()" src="img/chat.png" alt="" srcset="">
-
-    </div>
-    <div class="emojie">
-        <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
-    </div>
-    </div>`;
-
-    var message = ["hello", "hi", "how are you", "fine", "and you", "fine", "thanks", "you are welcome", "bye", "goodbye"];
+   
+    if (chat.style.visibility == "hidden") {
+        chat.style.visibility = "visible";
+     
+    } else {
+        chat.style.visibility = "hidden";
+     
+    }
+    var message = ["Hello", "Hi", "Siuuuu", "How are you", "Fine", "And you", "Fine", "Thanks", "You are welcome", "Bye", "goodbye"];
     for (var i = 0; i < message.length; i++) {
         chat.innerHTML += `<label class="message">${message[i]}</label>`;
     }
 
 }
-function showEmojies() {
-    
-    chat.innerHTML = `
-    <div class="text_emojie">
-    <div class="text">
-        <img onclick="showMessages()" src="img/chat.png" alt="" srcset="">
 
-    </div>
-    <div class="emojie">
-        <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
-    </div>
-    </div>`;
-    for (var i = 0; i < 10; i++) {
+var emojie = ["😉", "😂","😅","😮‍💨","😤","🤬","🫣","🫡","🤔","😭","🥲","😎", "🤝","🔥", "❤️","🏆"]
+
+function showEmojies() {
+    chat.innerHTML = ""
+    
+    if (chat.style.visibility == "hidden") {
+        chat.style.visibility = "visible";
+     
+    } else {
+        chat.style.visibility = "hidden";
+     
+    }
+    for (var i = 0; i < emojie.length; i++) {
+        chat.innerHTML += `<span class="pic_emojies">${emojie[i]}</span>`;
         
-        chat.innerHTML += `<img class="pic_emojies" src="img/proud.png" alt="" srcset="">`;
     }
 }
+
+var all_emojies = document.querySelector(".chat");
+
+all_emojies.addEventListener("click", function(event) {
+    if (event.target.classList.contains("pic_emojies")) {
+        console.log("Clicked label text:", event.target.textContent);
+        showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
+        chat.style.display = "none";
+        showMessage.style.display = "block";
+        const myTimeout = setTimeout(timeShow_message, 4500);
+    }
+});
+
+
 var showMessage = document.querySelector(".showMessage")
 
 var all_messages = document.querySelector(".chat");
@@ -88,7 +103,7 @@ all_messages.addEventListener("click", function(event) {
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
         chat.style.display = "none";
         showMessage.style.display = "block";
-        const myTimeout = setTimeout(timeShow_message, 1000);
+        const myTimeout = setTimeout(timeShow_message, 4500);
     }
 });
 
@@ -96,17 +111,13 @@ all_messages.addEventListener("click", function(event) {
 function timeShow_message() {
     showMessage.style.display = "none";
     chat.style.display = "block";
-    showChat()
-    chat.innerHTML = `
-    <div class="text_emojie">
-        <div class="text">
-            <img onclick="showMessages()" src="img/chat.png" alt="" srcset="">
-
-        </div>
-        <div class="emojie">
-            <img onclick="showEmojies()" src="img/proud.png" alt="" srcset="">
-        </div>
-    </div>`
+    if (chat.style.visibility == "hidden") {
+        chat.style.visibility = "visible";
+     
+    } else {
+        chat.style.visibility = "hidden";
+     
+    }
 }
 
  

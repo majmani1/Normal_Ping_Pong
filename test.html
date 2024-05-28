@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Rectangle in Canvas</title>
+    <style>
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #000;
+            margin: 0;
+        }
+        canvas { 
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="neonCanvas" width="500" height="500"></canvas>
+    <script >
+        const canvas = document.getElementById('neonCanvas');
+const ctx = canvas.getContext('2d');
+
+function drawRectangle(x, y, width, height, fillColor, glowColor) {
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Set shadow properties for the neon glow
+    ctx.shadowColor = glowColor;
+    ctx.shadowBlur = 20;
+
+    // Draw the glowing rectangle multiple times to intensify the glow
+    for (let i = 0; i < 10; i++) {
+        ctx.strokeStyle = glowColor;
+        ctx.lineWidth = 5 - i / 2;
+        ctx.strokeRect(x, y, width, height);
+    }
+
+    // Draw the main rectangle without shadow
+    ctx.shadowColor = 'transparent';
+    ctx.fillStyle = fillColor;
+    ctx.fillRect(x, y, width, height);
+
+    // Draw the outline of the main rectangle
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x, y, width, height);
+}
+
+// Call the function to draw the neon rectangle
+drawRectangle(100, 100, 300, 200, 'black', 'cyan');
+
+    </script>
+</body>
+</html>
