@@ -20,8 +20,8 @@ body{
 .text_emojie{
     /* background-color: rgb(0, 0, 0); */
     visibility: hidden;
-    width: 12vw;
-    height: 3vw;
+    width: 10vw;
+    height: 2.5vw;
     position: absolute;
     margin-left: -12%;
     margin-top: -5%;
@@ -85,7 +85,7 @@ label{
     cursor: pointer;
     border-radius: 5px;
     color: #ffffff;
-    font-size: 1.5vw;
+    font-size: 1.vw;
     display: flex;
     justify-content: center;
     background: #05bd7c;
@@ -102,7 +102,7 @@ label{
     margin-left: 13%;
     width: 20%;
     height: 20%;
-    font-size: 3vw;
+    font-size: 2vw;
     opacity: 0.4;
     transition: .1s ease-out;
 }
@@ -139,13 +139,13 @@ label{
 
 
   
-.chat{
+ .chat{
     position: absolute;
+     
     overflow: scroll;
     overflow-x: hidden;
-    visibility: hidden;
-    height: 12vw;
-    width: 12vw;
+    height: 10vw;
+    width: 10vw;
     margin-left: -12%;
     margin-top: -2%;
     border-radius: 10px;
@@ -153,36 +153,45 @@ label{
     
 }
 
+.button_logout{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    border: none;
+    background: none;
+    outline:none;
+    cursor: pointer;
+}
+
+.logout{
+    
+    height: 2vw;
+    width: 2vw;
+}
+
 .showMessage{
     display: none;
     position: absolute;
-    height: 5vw;
+    height: 3vw;
     width: 5vw;
     justify-content: center;
     align-items: center;
     background: rgb(255, 255, 255);
-    /* padding: 0 3% 0 0; */
-    /* padding-left: 1%; */
     margin-left: 2%;
     border-radius: 10px;
     color: #000;
-
-    /* clip-path: polygon(52% 0, 71% 17%, 100% 20%, 100% 80%, 99% 100%, 0 100%, 0 21%, 33% 17%); */
     clip-path: polygon(52% 0, 61% 9%, 100% 20%, 100% 80%, 99% 100%, 0 100%, 0 21%, 40% 10%);
-
-
     animation: down 5s ;
-
 }
 .messa{
     font-size: 1vw;
    display: flex;
-   height: 5vw;
+   height: 3vw;
    width: 5vw;
    justify-content: center;
    align-items: center;
    text-align: center;
-   color: #000;
+   color: #000000;
 
 }
 
@@ -209,9 +218,17 @@ label{
     display: flex;
 }
 
-.icon_chat{
+  .icon_chat{
     width: 2vw;
     height: 2vw;
+    cursor: pointer;
+}
+
+.icon_close{
+    position: absolute;
+    visibility: hidden;
+    width: 1.5vw;
+    height: 1.5vw;
     cursor: pointer;
 }
 

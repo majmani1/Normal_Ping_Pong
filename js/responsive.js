@@ -28,33 +28,27 @@ addEventListener("resize", (event) => {
  });
 
 // show div chat 
+var text_emojie = document.querySelector(".text_emojie");
+var chat = document.querySelector(".chat");
+var show = false
+var icon_chat = document.querySelector(".icon_chat");
+var icon_close = document.querySelector(".icon_close")
  
 function showChat() {
-    var chat = document.querySelector(".chat");
-    var text_emojie = document.querySelector(".text_emojie");
-    if (text_emojie.style.visibility == "hidden") {
+    
+   text_emojie.style.visibility == "hidden" 
+        icon_chat.style.visibility = "hidden"
+        icon_close.style.visibility = "visible"
         // chat.style.visibility = "visible";
         text_emojie.style.visibility = "visible";
-    } else {
-        text_emojie.style.visibility = "hidden";
-        chat.style.visibility = "hidden";
-    }
+ 
 }
 
 
-var chat = document.querySelector(".chat");
-
 function showMessages() {
-    console.log("showMessages")
     chat.innerHTML = ""
    
-    if (chat.style.visibility == "hidden") {
-        chat.style.visibility = "visible";
-     
-    } else {
-        chat.style.visibility = "hidden";
-     
-    }
+ 
     var message = ["Hello", "Hi", "Siuuuu", "How are you", "Fine", "And you", "Fine", "Thanks", "You are welcome", "Bye", "goodbye"];
     for (var i = 0; i < message.length; i++) {
         chat.innerHTML += `<label class="message">${message[i]}</label>`;
@@ -65,19 +59,22 @@ function showMessages() {
 var emojie = ["😉", "😂","😅","😮‍💨","😤","🤬","🫣","🫡","🤔","😭","🥲","😎", "🤝","🔥", "❤️","🏆"]
 
 function showEmojies() {
+    console.log("sss")
     chat.innerHTML = ""
-    
-    if (chat.style.visibility == "hidden") {
-        chat.style.visibility = "visible";
-     
-    } else {
-        chat.style.visibility = "hidden";
-     
-    }
+    show = true
+ 
     for (var i = 0; i < emojie.length; i++) {
         chat.innerHTML += `<span class="pic_emojies">${emojie[i]}</span>`;
         
     }
+}
+
+function hideChat()
+{
+    chat.innerHTML = ""
+    text_emojie.style.visibility = "hidden";
+    icon_chat.style.visibility = "visible"
+    icon_close.style.visibility = "hidden"
 }
 
 var all_emojies = document.querySelector(".chat");
@@ -86,7 +83,7 @@ all_emojies.addEventListener("click", function(event) {
     if (event.target.classList.contains("pic_emojies")) {
         console.log("Clicked label text:", event.target.textContent);
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
-        chat.style.display = "none";
+       
         showMessage.style.display = "block";
         const myTimeout = setTimeout(timeShow_message, 4500);
     }
@@ -101,7 +98,7 @@ all_messages.addEventListener("click", function(event) {
     if (event.target.classList.contains("message")) {
         console.log("Clicked label text:", event.target.textContent);
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
-        chat.style.display = "none";
+        
         showMessage.style.display = "block";
         const myTimeout = setTimeout(timeShow_message, 4500);
     }
@@ -110,14 +107,7 @@ all_messages.addEventListener("click", function(event) {
 
 function timeShow_message() {
     showMessage.style.display = "none";
-    chat.style.display = "block";
-    if (chat.style.visibility == "hidden") {
-        chat.style.visibility = "visible";
-     
-    } else {
-        chat.style.visibility = "hidden";
-     
-    }
+   
 }
 
  
