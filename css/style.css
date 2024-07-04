@@ -3,19 +3,20 @@ body{
 
     margin: 0;
     padding: 0;
-    -webkit-user-select: none;  
-  -ms-user-select: none;  
-  user-select: none;  
+    -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .table{
+    z-index: 10;
     margin-top: 5vh;
-    margin-left: 17%;
-    display: block;
+    /* margin-left: 28%; */
+    /* display: block; */
     /* background: red; */
 }
 
- 
+
 
 .text_emojie{
     /* background-color: rgb(0, 0, 0); */
@@ -27,10 +28,10 @@ body{
     margin-top: -5%;
     display: flex;
     justify-content: space-between;
-    box-shadow: 
+    box-shadow:
     0 0 10vw 0vw #02EB98,
     0 0 2vw 0.4vw #099e6a,
-    inset 0 0 .5vw 0.2vw #02EB98,
+    inset 0 0 .1vw 0.2vw #02EB98,
     inset 0 0 .2vw 0.2vw #00ac70,
     inset 0 0 .25vw 0.2vw #027b50;
 }
@@ -52,26 +53,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: #4c504e; */
     width: 50%;
-    /* height: 50%; */
     height: 100%;
-    /* opacity: 0.4; */
-    /* transition: .5s ease-out; */
-
 }
 
 
 .table{
-    /* margin-top: 5vh; */
-    /* background: url(../img/hexellence-1920x1080.png ); */
-    background: #000;
-    box-shadow: 
-    0 0 10vw 0vw #02EB98,
+    background: url("../img/player1-bg.jpeg");
+    box-shadow:
+    0 0 0vw 0vw #02EB98,
     0 0 2vw 0.4vw #099e6a,
-    inset 0 0 .5vw 0.2vw #02EB98,
+    inset 0 0 .1vw 0.01vw #02EB98,
     inset 0 0 .2vw 0.2vw #00ac70,
     inset 0 0 .25vw 0.2vw #027b50;
+    border-radius: 1vw;
 }
 
 
@@ -123,25 +118,25 @@ label{
   ::-webkit-scrollbar-track {
     /* background: #000000;  */
   }
-  
-  
+
+
   ::-webkit-scrollbar-thumb {
-      background: #cecfcf; 
-      
+      background: #cecfcf;
+
     }
-    
-    
+
+
     ::-webkit-scrollbar-thumb:hover {
-        background: #ffffff; 
-        
+        background: #ffffff;
+
     }
-    
 
 
-  
+
+
  .chat{
     position: absolute;
-     
+
     overflow: scroll;
     overflow-x: hidden;
     height: 10vw;
@@ -150,7 +145,7 @@ label{
     margin-top: -2%;
     border-radius: 10px;
     color: #FFF;
-    
+
 }
 
 .button_logout{
@@ -164,7 +159,7 @@ label{
 }
 
 .logout{
-    
+
     height: 2vw;
     width: 2vw;
 }
@@ -200,10 +195,10 @@ label{
         margin-top: -5%;
     }
     10% {
-        margin-top: 0%;   
+        margin-top: 0%;
     }
     80% {
-        margin-top: 0%;   
+        margin-top: 0%;
         opacity: 1;
     }
     100% {
@@ -235,18 +230,18 @@ label{
 .img_profile{
     z-index: 1;
     position: relative;
-    height: 5vw;
-    width: 5vw;
+    height: 4vw;
+    width: 4vw;
     border-radius: 50%;
     background-size: cover;
 }
 .score{
     margin-left: auto;
     margin-right: auto;
-     display: flex;  
+     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 40%;
 }
 
 
@@ -255,28 +250,195 @@ label{
     color: #FFF;
     transition: .5s ease-out;
  }
- 
 
- 
+
+
  span{
-    /* font-size: 7em; */
     color: #02EB98;
-    /* box-shadow: 
-    0 0 10vw 0vw #02EB98,
-    0 0 2vw 0.4vw #099e6a,
-    inset 0 0 .5vw 0.2vw #02EB98,
-    inset 0 0 .2vw 0.2vw #00ac70,
-    inset 0 0 .25vw 0.2vw #027b50; */
  }
- 
+
  .game{
-     
+     z-index: 1;
     display: inline-block;
-    /* justify-content: center; */
     width: 100%;
     height: 100%;
     padding: 5vh 0 0 0;
-    /* align-items: ; */
-  
+ 
+
 }
 
+.decoration1, .decoration2, .decoration3 {
+    position: absolute;
+
+    height: 10vw;
+    width: 10vw;
+    filter: blur(9rem);
+    overflow: hidden;
+    background-color: #02EB98;
+}
+.decoration1{
+    bottom: 10px;
+    right:  0px;
+
+}
+
+.decoration2{
+    top: 0px;
+    left:  0px;
+    transform: rotate(180deg);
+}
+
+.decoration3{
+    background: #cecfcf;
+    top: 0px;
+    right:  0px;
+    transform: rotate(-90deg);
+ 
+}
+
+
+ 
+.cercles1{
+    height: 2vw;
+    width: 5vw;
+    border: #00ac70 2px solid;
+    border-radius: 50vw;
+    position: absolute;
+    margin-top: 40vw;
+    margin-left: -2vw;
+    opacity: 0.5;
+
+    /* top: 0vw; */
+}
+ 
+ 
+  .cercles2{
+    height: 2vw;
+    width: 2vw;
+    border: #00ac70 2px solid;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 35vw;
+    margin-left: 17vw;
+    opacity: 0.5;
+
+
+}
+
+.cercles3{
+    height: 2vw;
+    width: 3vw;
+    border: #00ac70 2px solid;
+    border-radius: 50vw;
+    position: absolute;
+    margin-top: 40vw;
+    margin-left: 27vw;
+    opacity: 0.5;
+
+
+}
+.cercles4{
+    height: 3vw;
+    width: 3vw;
+    border: #00ac70 2px solid;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 33vw;
+   margin-left: 90vw;
+    opacity: 0.5;
+
+}
+
+.cercles5{
+    height: 2vw;
+    width: 2vw;
+    border: #00ac70 2px solid;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 37vw;
+   margin-left: 85vw;
+    opacity: 0.5;
+
+}
+
+.cercles6{
+    height: 2.5vw;
+    width: 2.5vw;
+    border: #00ac70 2px solid;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 43vw;
+    margin-left: 80vw;
+    opacity: 0.5;
+
+}
+
+.cercles7{
+    height: 2vw;
+    width: 2vw;
+    border: #00ac70 2px solid;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 43vw;
+    margin-left: 71vw;
+    opacity: 0.5;
+
+}
+
+.cercles8{
+    height: 1vw;
+    width: 1vw;
+    border: #00ac70 2px solid;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 38vw;
+    margin-left: 65vw;
+    opacity: 0.5;
+
+}
+
+.cercles9{
+    height: 2vw;
+    width: 4vw;
+    border: #00ac70 2px solid;
+    border-radius: 50vw;
+    position: absolute;
+    margin-top: 45vw;
+    margin-left: 55vw;
+    opacity: 0.5;
+
+}
+
+.cercles10{
+    height: 4vw;
+    width: 2vw;
+    border: #00ac70 2px solid;
+    border-radius: 50vw;
+    position: absolute;
+    margin-top: 40vw;
+    margin-left: 45vw;
+    opacity: 0.5;
+}
+
+
+.tubeSocer2, .tubeSocer1{
+    height: 15vw;
+    width: 3vw;
+    border: #02EB98 2px solid;
+    /* background: linear-gradient( 0deg, #02EB98 40%, transparent 40%); */
+    margin-top: 15vh;
+    border-radius: 3vw;
+    transition: .5 ease-in;
+    
+}
+
+ 
+
+.tubeAndTable{
+    /* width: 100vw;
+    height: 100vh; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: #00ac70; */
+}

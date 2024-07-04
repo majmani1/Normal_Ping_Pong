@@ -3,27 +3,28 @@ addEventListener("resize", (event) => {
     //-------- table
 
     
-    infos_tbale.width = window.innerWidth / 1.5
-    infos_tbale.height = (window.innerWidth / 1.5) / 2
+    infos_tbale.width = window.innerWidth / 2.3
+    infos_tbale.height = (window.innerWidth / 2.3) / 2
 
     infos_ball.speed_x = infos_tbale.width / 190
     infos_player1.speed_move = infos_tbale.height / 130
     canvas.width = infos_tbale.width
     canvas.height = infos_tbale.height
     //-------- player1
-    infos_player1.x = 0,
-    infos_player1.y = infos_tbale.height/2 - 37.5
-    infos_player1.width = infos_tbale.width/80
-    infos_player1.height = infos_tbale.height / 4
+    infos_player1.x = 10,
+    infos_player1.y = infos_tbale.height/2 - ((infos_tbale.height / 7)/2)
+    infos_player1.width = infos_tbale.width/120
+    infos_player1.height = infos_tbale.height / 7
     //-------- player2
-    infos_player2.x = infos_tbale.width - infos_player1.width
-    infos_player2.y = infos_tbale.height / 2 - 37.5
-    infos_player2.width = infos_tbale.width / 80
-    infos_player2.height = infos_tbale.height / 4
+    infos_player2.x = infos_tbale.width - infos_player1.width - 10
+    infos_player2.y =  infos_tbale.height/2 - ((infos_tbale.height / 7)/2)
+    infos_player2.width = infos_tbale.width / 120
+    infos_player2.height = infos_tbale.height / 7
     //-------- ball
     infos_ball.x = infos_tbale.width / 2
     infos_ball.y = infos_tbale.height / 2
     infos_ball.width = infos_tbale.height  * 2 / 100
+    infos_ball.speed_x = infos_tbale.width / 300
     
  });
 
@@ -71,7 +72,7 @@ function showEmojies() {
 
 function hideChat()
 {
-    chat.innerHTML = ""
+    chat.innerHTML = "" 
     text_emojie.style.visibility = "hidden";
     icon_chat.style.visibility = "visible"
     icon_close.style.visibility = "hidden"
@@ -85,6 +86,7 @@ all_emojies.addEventListener("click", function(event) {
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
        
         showMessage.style.display = "block";
+        hideChat()
         const myTimeout = setTimeout(timeShow_message, 4500);
     }
 });
@@ -96,10 +98,10 @@ var all_messages = document.querySelector(".chat");
 
 all_messages.addEventListener("click", function(event) {
     if (event.target.classList.contains("message")) {
-        console.log("Clicked label text:", event.target.textContent);
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
         
         showMessage.style.display = "block";
+        hideChat()
         const myTimeout = setTimeout(timeShow_message, 4500);
     }
 });

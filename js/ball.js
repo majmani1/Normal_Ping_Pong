@@ -2,14 +2,15 @@
 var infos_ball = {
     x: infos_tbale.width/2,
     y: infos_tbale.height / 2,
-    width: infos_tbale.height  * 2 / 100,
-    height: infos_tbale.height  * 20 / 100,
+    width: infos_tbale.height  * 2 / 120,
+    height: infos_tbale.height  * 20 / 120,
     radius: 10,
     move_x: "left",
     move_y: "stop",
     speed: 0,
     speed_x: infos_tbale.width / 300,
-    start_match: false
+    start_match: false,
+    max_score: 5
 }
 const ball = canvas.getContext("2d");
 
@@ -24,16 +25,20 @@ function replay(move_x)
     {
         infos_player1.score += 1
         document.querySelector(".result_player1").innerHTML = infos_player1.score;
+        let percentage_win = infos_player1.score * 100/ infos_ball.max_score
+        tubeSocer1.style.cssText = ` background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);`
     }
     else
     {
         infos_player2.score += 1
         document.querySelector(".result_player2").innerHTML = infos_player2.score;
+        let percentage_win = infos_player2.score * 100/ infos_ball.max_score
+        tubeSocer2.style.cssText = ` background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);`
     }
     infos_ball.x = infos_tbale.width/2
     infos_ball.y = infos_tbale.height / 2
-    infos_player1.y = infos_tbale.height / 2 - ((infos_tbale.height / 4) / 2)
-    infos_player2.y = infos_tbale.height / 2 - ((infos_tbale.height / 4) / 2)
+    infos_player1.y = infos_tbale.height / 2 - ((infos_tbale.height / 7) / 2)
+    infos_player2.y = infos_tbale.height / 2 - ((infos_tbale.height / 7) / 2)
     infos_ball.move_x = move_x
     infos_ball.move_y = "stop"
 }
@@ -49,16 +54,16 @@ function move_left_right() {
         // console.log((infos_ball.y - infos_player1.y) / infos_player1.height) * 7 * 10
         infos_ball.speed = (infos_ball.y - infos_player1.y) / (infos_player1.height / 2) 
         if ((infos_ball.y - infos_player1.y) < infos_player1.height / 2)
-            {
-                infos_ball.speed += -1 
+        {
+            infos_ball.speed += -1 
             infos_ball.move_y = "up"
-            }
+        }
         else if ((infos_ball.y - infos_player1.y) > infos_player1.height - infos_player1.height / 2)
         {
             infos_ball.speed += -1
             
             infos_ball.move_y = "down"
-            }
+        }
     
 
         if (infos_ball.move_x == "left")
@@ -73,14 +78,14 @@ function move_left_right() {
         if ((infos_ball.y - infos_player2.y) < infos_player2.height / 2)
             {
                 infos_ball.speed += -1 
-            infos_ball.move_y = "up"
+                infos_ball.move_y = "up"
             }
         else if ((infos_ball.y - infos_player2.y) > infos_player2.height - infos_player2.height / 2)
-            {
-                infos_ball.speed += -1
-                
-                infos_ball.move_y = "down"
-                }
+        {
+            infos_ball.speed += -1
+            
+            infos_ball.move_y = "down"
+        }
         if (infos_ball.move_x == "left")
             infos_ball.move_x = "right"
         else
@@ -101,7 +106,7 @@ function move_up_down() {
     {
         infos_ball.speed = -infos_ball.speed
         infos_ball.move_y = "down"
-        }
+    }
     else if (infos_ball.y + infos_ball.radius + infos_ball.speed > infos_tbale.height)
     {
         infos_ball.move_y = "up"

@@ -2,29 +2,33 @@
 
 
 const canvas = document.querySelector(".table")
+const tubeSocer1 = document.querySelector(".tubeSocer1")
+const tubeSocer2 = document.querySelector(".tubeSocer2")
 
+ 
 
 var infos_tbale = {
     
-    width : window.innerWidth / 1.5,
-    height : ( window.innerWidth / 1.5)/2,
+    width : window.innerWidth / 2.3,
+    height : ( window.innerWidth / 2.3)/2,
 }
 
 var infos_player1 = {
-    x : 0,
-    y : infos_tbale.height/2 - ((infos_tbale.height / 4)/2),
-    width : infos_tbale.width/80,
-    height: infos_tbale.height / 4,
+    gapX : 10,
+    x : 10,
+    y : infos_tbale.height/2 - ((infos_tbale.height / 7)/2),
+    width : infos_tbale.width/120,
+    height: infos_tbale.height / 7,
     speed_move: infos_tbale.height / 130,
     score: 0,
     move: "stop"
 }
 
 var infos_player2 = {
-    x : infos_tbale.width - infos_player1.width,
-    y : infos_tbale.height/2 - ((infos_tbale.height / 4)/2),
-    width : infos_tbale.width/80,
-    height: infos_tbale.height / 4,
+    x : infos_tbale.width - infos_player1.width - 10,
+    y : infos_tbale.height/2 - ((infos_tbale.height / 7)/2),
+    width : infos_tbale.width/120,
+    height: infos_tbale.height / 7,
     score: 0,
     move: "stop"
 }
@@ -48,7 +52,9 @@ let clicks = []
  var i = 0
 document.addEventListener("keydown", function(key){
 
-    if (key.key == "w" && infos_player1.y > 0) {
+    // let borderTable = 1 * window.innerWidth / 100
+    // console.log(infos_player1.y -borderTable + " eee  ")
+    if (key.key == "w" && infos_player1.y   > 0) {
         if (clicks.find(clicks => clicks.letre == "w") == undefined)
             clicks.push({letre: "w"})
 
@@ -79,10 +85,10 @@ document.addEventListener("keydown", function(key){
 })
 
 document.addEventListener("keyup", function (key) {
-    if (key.key == "w") {
-     
+    if (key.key == "w")
+    {
         clicks.splice(clicks.findIndex(click => click.letre == "w"), 1);
-            infos_player1.move =  "stop"
+        infos_player1.move =  "stop"
     }
     else if (key.key == "s")
     {
