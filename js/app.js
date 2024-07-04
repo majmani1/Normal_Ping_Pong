@@ -1,6 +1,3 @@
-
-
-
 const canvas = document.querySelector(".table")
 const tubeSocer1 = document.querySelector(".tubeSocer1")
 const tubeSocer2 = document.querySelector(".tubeSocer2")
@@ -137,6 +134,7 @@ function drawPlayer()
     player1.clearRect(0, 0, infos_tbale.width, infos_tbale.height);
 
     draw_BAll()
+
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
     player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
  
@@ -146,4 +144,26 @@ function drawPlayer()
 
 var move_player = setInterval(drawPlayer, 5);
 
+
+
+// function printTextInTable(y)
+// {
+//     const ctx = canvas.getContext("2d");
     
+//     ctx.font = "3vh Arial";
+//     ctx.fillText(y,infos_tbale.width/2, infos_tbale.height/2);
+// }
+
+// var count = 5
+
+// function printChono()
+// {
+//     if (count <= 0)
+//         count = 5
+//     count--
+//     printTextInTable(count)
+   
+// }
+
+// var chronoPlay =  window.setInterval(printChono, 1000);
+
