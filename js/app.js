@@ -16,7 +16,7 @@ var infos_player1 = {
     y : infos_tbale.height/2 - ((infos_tbale.height / 7)/2),
     width : infos_tbale.width/120,
     height: infos_tbale.height / 7,
-    speed_move: infos_tbale.height / 130,
+    speed_move: infos_tbale.height / 250,
     score: 0,
     move: "stop"
 }
