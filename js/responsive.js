@@ -112,7 +112,28 @@ function timeShow_message() {
    
 }
 
- 
 
+
+var closeScore = document.querySelector(".closeScore")
+
+closeScore.addEventListener("click", function(event){
+    window.location.href = './home.html'
+})
+
+
+
+var game = document.querySelector(".game")
+var all_scores = document.querySelector(".value_score");
+var chose_score = document.querySelector(".chose_score");
+
+all_scores.addEventListener("click", function(event) {
+    if (event.target.classList.contains("value")) {
+        play_or_pause = "play"
+        chose_score.style.display = "none"
+        game.style.opacity = 1
+        game.style.filter = "blur(0)"
+        console.log(event.target.textContent)
+    }
+});
 
 

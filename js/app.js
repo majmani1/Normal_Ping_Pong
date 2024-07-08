@@ -2,7 +2,7 @@ const canvas = document.querySelector(".table")
 const tubeSocer1 = document.querySelector(".tubeSocer1")
 const tubeSocer2 = document.querySelector(".tubeSocer2")
 
- 
+ var play_or_pause = "pause"
 
 var infos_tbale = {
     
@@ -110,6 +110,8 @@ document.addEventListener("keyup", function (key) {
 
 function drawPlayer()
 {
+    if (play_or_pause == "pause")
+        return
     for (let i = 0; i < clicks.length; i++)
     {
         if (clicks[i].letre == "w" && infos_player1.y > 0)
@@ -134,14 +136,11 @@ function drawPlayer()
     player1.clearRect(0, 0, infos_tbale.width, infos_tbale.height);
 
     draw_BAll()
-
+    
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);
     player2.fillRect(infos_player2.x,infos_player2.y,infos_player2.width,infos_player2.height);
  
 }
-
- 
-
 var move_player = setInterval(drawPlayer, 5);
 
 
