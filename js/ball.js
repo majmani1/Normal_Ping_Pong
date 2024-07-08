@@ -35,6 +35,8 @@ function replay(move_x)
         let percentage_win = infos_player2.score * 100/ infos_ball.max_score
         tubeSocer2.style.cssText = ` background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);`
     }
+    if (infos_player2.score >= infos_ball.max_score || infos_player1.score >= infos_ball.max_score )
+        window.location.href = './home.html'
     infos_ball.x = infos_tbale.width/2
     infos_ball.y = infos_tbale.height / 2
     infos_player1.y = infos_tbale.height / 2 - ((infos_tbale.height / 7) / 2)

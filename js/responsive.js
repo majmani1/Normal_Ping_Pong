@@ -125,6 +125,7 @@ closeScore.addEventListener("click", function(event){
 var game = document.querySelector(".game")
 var all_scores = document.querySelector(".value_score");
 var chose_score = document.querySelector(".chose_score");
+var afichage_score = document.querySelector(".afichage_score");
 
 all_scores.addEventListener("click", function(event) {
     if (event.target.classList.contains("value")) {
@@ -132,7 +133,9 @@ all_scores.addEventListener("click", function(event) {
         chose_score.style.display = "none"
         game.style.opacity = 1
         game.style.filter = "blur(0)"
-        console.log(event.target.textContent)
+        afichage_score.textContent= event.target.textContent
+        infos_ball.max_score = event.target.textContent
+        // console.log(infos_ball.max_score)
     }
 });
 

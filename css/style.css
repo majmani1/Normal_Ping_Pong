@@ -655,5 +655,19 @@ label:hover{
 
 
 
-
+.afichage_score{
+    position: absolute;
+    top: 0;
+    right: 47.9vw;
+    height: 4vw;
+    width: 3vw;
+    font-size: 2vw;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    background: #00ac70;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
