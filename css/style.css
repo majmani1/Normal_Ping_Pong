@@ -267,13 +267,14 @@ label:hover{
  }
 
  .game{
+    margin-top: 5vh;
     filter: blur(10px);
     opacity: .5;
     z-index: 1;
     display: inline-block;
     width: 100%;
     height: 100%;
-    padding: 5vh 0 0 0;
+    padding: 0 0 0 0;
  
 
 }
@@ -670,4 +671,40 @@ label:hover{
     justify-content: center;
     align-items: center;
 }
-  
+
+
+.crown2, .crown1{
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    display: none;
+    animation: crown .7s ease;
+}
+
+
+.crown1{
+    z-index: 1;
+    top: 5vh;
+    left: 34vw;
+    transform: rotate(45deg);
+}
+
+
+.crown2{
+    z-index: 1;
+    top: 5vh;
+    right: 32.8vw;
+    transform: rotate(-49deg);
+}
+
+@keyframes crown {
+    0%{
+        opacity: 0;
+        scale: 2;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+    
+}

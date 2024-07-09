@@ -1,4 +1,12 @@
- 
+
+
+var game = document.querySelector(".game")
+var all_scores = document.querySelector(".value_score");
+var chose_score = document.querySelector(".chose_score");
+var afichage_score = document.querySelector(".afichage_score");
+var crown1 = document.querySelector(".crown1");
+var crown2 = document.querySelector(".crown2");
+
 addEventListener("resize", (event) => {
     //-------- table
 
@@ -122,10 +130,7 @@ closeScore.addEventListener("click", function(event){
 
 
 
-var game = document.querySelector(".game")
-var all_scores = document.querySelector(".value_score");
-var chose_score = document.querySelector(".chose_score");
-var afichage_score = document.querySelector(".afichage_score");
+
 
 all_scores.addEventListener("click", function(event) {
     if (event.target.classList.contains("value")) {
