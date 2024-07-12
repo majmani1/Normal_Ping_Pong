@@ -18,7 +18,8 @@ var infos_player1 = {
     height: infos_tbale.height / 7,
     speed_move: infos_tbale.height / 250,
     score: 0,
-    move: "stop"
+    move: "stop",
+   
 }
 
 var infos_player2 = {
@@ -135,6 +136,7 @@ function drawPlayer()
     ball.fillStyle = "#02EB98";
     player1.clearRect(0, 0, infos_tbale.width, infos_tbale.height);
 
+   
     draw_BAll()
     
     player1.fillRect(infos_player1.x,infos_player1.y,infos_player1.width,infos_player1.height);

@@ -45,7 +45,7 @@ var icon_close = document.querySelector(".icon_close")
  
 function showChat() {
     
-   text_emojie.style.visibility == "hidden" 
+        text_emojie.style.visibility == "hidden" 
         icon_chat.style.visibility = "hidden"
         icon_close.style.visibility = "visible"
         // chat.style.visibility = "visible";
@@ -55,6 +55,8 @@ function showChat() {
 
 
 function showMessages() {
+    chat.style.opacity = "1"
+
     chat.innerHTML = ""
    
  
@@ -68,7 +70,8 @@ function showMessages() {
 var emojie = ["😉", "😂","😅","😮‍💨","😤","🤬","🫣","🫡","🤔","😭","🥲","😎", "🤝","🔥", "❤️","🏆"]
 
 function showEmojies() {
-    console.log("sss")
+    chat.style.opacity = "1"
+
     chat.innerHTML = ""
     show = true
  
@@ -80,6 +83,7 @@ function showEmojies() {
 
 function hideChat()
 {
+    chat.style.opacity = "0"
     chat.innerHTML = "" 
     text_emojie.style.visibility = "hidden";
     icon_chat.style.visibility = "visible"
@@ -90,7 +94,6 @@ var all_emojies = document.querySelector(".chat");
 
 all_emojies.addEventListener("click", function(event) {
     if (event.target.classList.contains("pic_emojies")) {
-        console.log("Clicked label text:", event.target.textContent);
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
        
         showMessage.style.display = "block";
@@ -134,14 +137,45 @@ closeScore.addEventListener("click", function(event){
 
 all_scores.addEventListener("click", function(event) {
     if (event.target.classList.contains("value")) {
-        play_or_pause = "play"
+        
         chose_score.style.display = "none"
         game.style.opacity = 1
         game.style.filter = "blur(0)"
         afichage_score.textContent= event.target.textContent
         infos_ball.max_score = event.target.textContent
+        canvas.style.display = "block"
+        tubeSocer1.style.display = "block"
+        tubeSocer2.style.display = "block"
         // console.log(infos_ball.max_score)
     }
 });
 
 
+
+canvas.addEventListener('animationend', () => {
+    // Apply box-shadow styles after the animation completes
+    canvas.style.cssText = `box-shadow:
+            0 0 0vw 0vw #02EB98,
+            0 0 2vw 0.4vw #099e6a,
+            inset 0 0 .1vw 0.01vw #02EB98,
+            inset 0 0 .2vw 0.2vw #00ac70,
+            inset 0 0 .25vw 0.2vw #027b50;
+            display:block;`
+
+    tubeSocer1.style.cssText  = `box-shadow:
+    0 0 0vw 0vw #02EB98,
+    0 0 2vw 0.4vw #099e6a,
+    inset 0 0 .1vw 0.01vw #02EB98,
+    inset 0 0 .2vw 0.2vw #00ac70,
+    inset 0 0 .25vw 0.2vw #027b50;
+    display:block;`
+    tubeSocer2.style.cssText  = `box-shadow:
+    0 0 0vw 0vw #02EB98,
+    0 0 2vw 0.4vw #099e6a,
+    inset 0 0 .1vw 0.01vw #02EB98,
+    inset 0 0 .2vw 0.2vw #00ac70,
+    inset 0 0 .25vw 0.2vw #027b50;
+    display:block;`
+      play_or_pause = "play"
+   
+});
