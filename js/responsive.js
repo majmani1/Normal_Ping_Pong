@@ -161,6 +161,7 @@ canvas.addEventListener('animationend', () => {
             inset 0 0 .2vw 0.2vw #00ac70,
             inset 0 0 .25vw 0.2vw #027b50;
             display:block;`
+    
 
     tubeSocer1.style.cssText  = `box-shadow:
     0 0 0vw 0vw #02EB98,

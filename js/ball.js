@@ -26,7 +26,14 @@ function replay(move_x)
         infos_player1.score += 1
         document.querySelector(".result_player1").innerHTML = infos_player1.score;
         let percentage_win = infos_player1.score * 100/ infos_ball.max_score
-        tubeSocer1.style.cssText = ` background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);`
+        tubeSocer1.style.cssText  = `background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);
+        box-shadow:
+        0 0 0vw 0vw #02EB98,
+        0 0 2vw 0.4vw #099e6a,
+        inset 0 0 .1vw 0.01vw #02EB98,
+        inset 0 0 .2vw 0.2vw #00ac70,
+        inset 0 0 .25vw 0.2vw #027b50;
+        display:block;`
     }
     else
     {
@@ -34,7 +41,14 @@ function replay(move_x)
         infos_player2.score += 1
         document.querySelector(".result_player2").innerHTML = infos_player2.score;
         let percentage_win = infos_player2.score * 100/ infos_ball.max_score
-        tubeSocer2.style.cssText = ` background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);`
+        tubeSocer2.style.cssText = ` background: linear-gradient( 0deg, #02EB98 ${percentage_win}%, transparent 40%);
+         box-shadow:
+        0 0 0vw 0vw #02EB98,
+        0 0 2vw 0.4vw #099e6a,
+        inset 0 0 .1vw 0.01vw #02EB98,
+        inset 0 0 .2vw 0.2vw #00ac70,
+        inset 0 0 .25vw 0.2vw #027b50;
+        display:block;`
     }
     if (infos_player2.score >= infos_ball.max_score || infos_player1.score >= infos_ball.max_score )
     {
