@@ -50,7 +50,7 @@ function showChat() {
         icon_close.style.visibility = "visible"
         // chat.style.visibility = "visible";
         text_emojie.style.visibility = "visible";
- 
+        showEmojies()
 }
 
 
@@ -95,8 +95,10 @@ var all_emojies = document.querySelector(".chat");
 all_emojies.addEventListener("click", function(event) {
     if (event.target.classList.contains("pic_emojies")) {
         showMessage.innerHTML = `<span class="messa">${event.target.textContent}</span>`
+        showMessage2.innerHTML = `<span class="messa2">${event.target.textContent}</span>`
        
         showMessage.style.display = "block";
+        showMessage2.style.display = "block";
         hideChat()
         const myTimeout = setTimeout(timeShow_message, 4500);
     }
@@ -104,6 +106,7 @@ all_emojies.addEventListener("click", function(event) {
 
 
 var showMessage = document.querySelector(".showMessage")
+var showMessage2 = document.querySelector(".showMessage2")
 
 var all_messages = document.querySelector(".chat");
 
@@ -120,6 +123,7 @@ all_messages.addEventListener("click", function(event) {
 
 function timeShow_message() {
     showMessage.style.display = "none";
+    showMessage2.style.display = "none";
    
 }
 
