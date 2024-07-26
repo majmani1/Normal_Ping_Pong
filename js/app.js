@@ -146,6 +146,32 @@ function drawPlayer()
 var move_player = setInterval(drawPlayer, 5);
 
 
+var button_up = document.querySelector('.button_up')
+
+
+button_up.addEventListener('click', function() {
+    console.log('l');
+});
+
+function movePlayer(direction)
+{
+    console.log("PAPAPAPAP")
+    if (direction == "up" && infos_player1.y   > 0) {
+        infos_player1.y -= infos_player1.speed_move
+
+
+        infos_player1.move = "up"
+    }
+    else if (direction == "down" &&  infos_player1.y + infos_player1.height < canvas.height)
+    {
+        infos_player1.y += infos_player1.speed_move
+
+
+        infos_player1.move = "down"
+         
+    }
+
+}
 
 // function printTextInTable(y)
 // {

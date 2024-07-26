@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect Off Click Example</title>
+</head>
+<body>
+    <div id="myDiv" style="width:100px; height:100px; background-color:lightblue;">
+        Click inside me
+    </div>
+
+    <script>
+        // Get the div element by its ID
+        const myDiv = document.getElementById('myDiv');
+
+        // Function to handle document clicks
+        function handleDocumentClick(event) {
+            if (!myDiv.contains(event.target)) {
+                console.log('no');
+            }
+        }
+
+        // Add a click event listener to the document
+        document.addEventListener('click', handleDocumentClick);
+
+        // Add a click event listener to the div
+        myDiv.addEventListener('click', function(event) {
+            console.log('yes');
+            // Prevent the event from propagating to the document
+            event.stopPropagation();
+        });
+    </script>
+</body>
+</html>
